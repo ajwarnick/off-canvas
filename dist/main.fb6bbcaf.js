@@ -112,29 +112,30 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = offcanvas;
 
+//var matches = container.querySelectorAll("li[data-active='1']");
 function offcanvas() {
-  console.log("Offcanvas Init");
-  document.querySelectorAll(".toggle-nav").forEach(function (element) {
+  var elements = document.getElementsByClassName('offcanvas--wrapper');
+  var wrapper = elements[0];
+  document.querySelectorAll(".offcanvas--toggle--nav").forEach(function (element) {
     element.addEventListener("click", function (element) {
-      var wrapper = document.getElementById('site-wrapper');
-      var clst = "show-" + element.target.dataset.direction;
+      var clst = "offcanvas--show--" + element.target.dataset.direction;
 
       if (wrapper.classList.contains(clst)) {
-        wrapper.classList.remove("show-left", "show-right");
+        wrapper.classList.remove("offcanvas--show--left", "offcanvas--show--right");
       } else {
         wrapper.classList.add(clst);
         element.stopPropagation();
-        var content = document.getElementById('site-content');
-        content.addEventListener("click", function () {
-          wrapper.classList.remove("show-left", "show-right");
+        document.querySelectorAll(".offcanvas--content").forEach(function (element) {
+          element.addEventListener("click", function () {
+            wrapper.classList.remove("offcanvas--show--left", "offcanvas--show--right");
+          });
         });
       }
     });
   });
   document.querySelectorAll(".close-nav").forEach(function (element) {
-    var wrapper = document.getElementById('site-wrapper');
     element.addEventListener("click", function () {
-      wrapper.classList.remove("show-left", "show-right");
+      wrapper.classList.remove("offcanvas--show--left", "offcanvas--show--right");
     });
   });
 }

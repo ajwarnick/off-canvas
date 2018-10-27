@@ -3,20 +3,15 @@ $rightSidebarSize: 600px;
 
 $transition:300ms ease all;
 
+$opacity: .25;
 
-
-body{
-  padding: 0;
-  margin: 0;
-}
-
-#site-wrapper {
+#offcanvas--wrapper {
   position: relative;
   overflow: hidden;
   width: 100%;
 }
 
-#site-canvas {
+.offcanvas--canvas {
   width: 100%;
   height: 100%;
   position: relative;
@@ -36,11 +31,11 @@ body{
   opacity: 1;
 }
 
-#site-content{
+.offcanvas--content{
   min-height: 100vh;
 }
 
-.show-right #site-canvas {
+.offcanvas--show--right .offcanvas--canvas {
   -webkit-transform: translateX($rightSidebarSize * -1);
   transform: translateX($rightSidebarSize * -1);
   
@@ -48,7 +43,7 @@ body{
   transform: translate3d( ($rightSidebarSize * -1), 0, 0);
 }
 
-.show-left #site-canvas {
+.offcanvas--show--left .offcanvas--canvas {
   -webkit-transform: translateX($leftSidebarSize);
   transform: translateX($leftSidebarSize);
   
@@ -56,15 +51,15 @@ body{
   transform: translate3d($leftSidebarSize, 0, 0);
 }
 
-.show-right #site-content{
-  opacity: .25;
+.offcanvas--show--right .offcanvas--content{
+  opacity: $opacity;
 }
 
-.show-left #site-content{
-  opacity: .25;
+.offcanvas--show--left .offcanvas--content{
+  opacity: $opacity;
 }
 
-#site-canvas #left--sidebar {
+.offcanvas--canvas .offcanvas--left--sidebar {
   width: $leftSidebarSize;
   //height: 100%;
   position: absolute;
@@ -72,7 +67,7 @@ body{
   left: $leftSidebarSize * -1;
 }
 
-#site-canvas #right--sidebar {
+.offcanvas--canvas .offcanvas--right--sidebar {
   width: $rightSidebarSize;
   //height: 100%;
   position: absolute;
